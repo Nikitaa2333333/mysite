@@ -123,7 +123,8 @@ export default function Aurora(props) {
     const renderer = new Renderer({
       alpha: true,
       premultipliedAlpha: true,
-      antialias: true
+      antialias: false, // Отключаем сглаживание для повышения FPS (для размытых эффектов оно не нужно)
+      dpr: Math.min(window.devicePixelRatio, 1.5) // Ограничиваем плотность пикселей для слабых GPU
     });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
@@ -170,17 +171,28 @@ export default function Aurora(props) {
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
+    let lastStops = null;
+    let cachedColorArray = null;
+
     const update = t => {
       animateId = requestAnimationFrame(update);
-      const { time = t * 0.01, speed = 1.0 } = propsRef.current;
+      const { time = t * 0.01, speed = 1.0, colorStops: currentStops } = propsRef.current;
+
       program.uniforms.uTime.value = time * speed * 0.1;
       program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
       program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
-      const stops = propsRef.current.colorStops ?? colorStops;
-      program.uniforms.uColorStops.value = stops.map(hex => {
-        const c = new Color(hex);
-        return [c.r, c.g, c.b];
-      });
+
+      // Обновляем цвета только если они изменились, а не каждый кадр
+      const activeStops = currentStops ?? colorStops;
+      if (activeStops !== lastStops) {
+        cachedColorArray = activeStops.map(hex => {
+          const c = new Color(hex);
+          return [c.r, c.g, c.b];
+        });
+        lastStops = activeStops;
+        program.uniforms.uColorStops.value = cachedColorArray;
+      }
+
       renderer.render({ scene: mesh });
     };
     animateId = requestAnimationFrame(update);

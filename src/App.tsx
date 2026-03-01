@@ -11,30 +11,30 @@ const CASES = [
     title: 'Оформление аудитории для «Магнит теха»',
     category: 'Интерьеры',
     likes: 21,
-    image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop',
     description: 'Для Центрального университета в студии создали оформление брендированной аудитории «Магнит теха», который разрабатывает цифровые продукты для группы компаний «Магнит». Обновление аудитории стало частью реализации плана по поддержке талантливых и целеустремленных студентов.',
     additionalText: 'Основной слоган компании — «Без предела». Его математическое воплощение содержит ключевые элементы, из которых складывается фирменный паттерн. Придуманная нами классная мебель также повторяет форму математических символов. Она не имеет жесткой основы, с легкостью брендирует любое пространство и обладает максимальной функциональностью.',
-    fullImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop',
+    fullImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop',
   },
   {
     id: 2,
     title: 'Айдентика Первого кредитного бюро Казахстана',
     category: 'Логотип и шрифт',
     likes: 14,
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop',
     description: 'Разработка современного стиля и айдентики для ПКБ, отражающего надежность, технологичность и прозрачность финансовых процессов.',
     additionalText: 'Обновленный логотип стал более строгим и лаконичным, а фирменный паттерн символизирует потоки данных и цифровизацию.',
-    fullImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
+    fullImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop',
   },
   {
     id: 3,
     title: 'Линейка мобильных аксессуаров «Ви-эл-пи»',
     category: 'Промышленный дизайн',
     likes: 52,
-    image: 'https://images.unsplash.com/photo-1601524909162-ae8725290836?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1601524909162-ae8725290836?q=80&w=800&auto=format&fit=crop',
     description: 'Дизайн премиальной линейки зарядок, кабелей и портативных аккумуляторов для современных устройств.',
     additionalText: 'Особое внимание уделено тактильным ощущениям и премиальным материалам. В их основе чистые формы и минимум лишних деталей.',
-    fullImage: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=2000&auto=format&fit=crop',
+    fullImage: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=1600&auto=format&fit=crop',
   }
 ];
 
@@ -491,8 +491,8 @@ export default function App() {
                 className="group relative flex-1 aspect-square md:aspect-auto md:h-[700px] overflow-hidden cursor-pointer bg-white/5"
               >
                 {/* Изображение с эффектом Zoom при наведении */}
-                <div className="absolute inset-0 transition-transform duration-[1.5s] ease-out group-hover:scale-110">
-                  <img src={c.image} alt={c.title} className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-80" />
+                <div className="absolute inset-0 transition-transform duration-[1.5s] ease-out group-hover:scale-110 will-change-transform">
+                  <img src={c.image} alt={c.title} loading="lazy" className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-80" />
                 </div>
 
                 {/* Оверлей-градиент снизу */}
@@ -614,7 +614,7 @@ function CaseStudy({ data, onClose }: { data: any, onClose: () => void }) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="w-full h-auto min-h-[50vh] xl:h-[80vh] overflow-hidden bg-white/5"
         >
-          <img src={data.fullImage} alt={data.title} className="w-full h-full object-cover" />
+          <img src={data.fullImage} alt={data.title} loading="lazy" className="w-full h-full object-cover" />
         </motion.div>
       )}
 
