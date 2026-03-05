@@ -107,6 +107,10 @@ const fadeUp = {
 export default function Home() {
     const [activeCase, setActiveCase] = useState<number | null>(null);
 
+    useEffect(() => {
+        document.title = "Никита Чендев — Smart Develop";
+    }, []);
+
     const activeCaseData = CASES.find(c => c.id === activeCase);
 
     if (activeCaseData) {
