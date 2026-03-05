@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Sparkles, Zap, Shield, Globe, Play, Menu, X, Twitter, Github, ArrowLeft, Heart, Share, BarChart2 } from 'lucide-react';
-import myPhoto from '../Gemini_Generated_Image_o3wfh7o3wfh7o3wf.png';
-import strawberryCover from '../Slide 16_9 - 1.png';
+import myPhoto from '../Gemini_Generated_Image_o3wfh7o3wfh7o3wf.webp';
+import strawberryCover from '../Slide 16_9 - 1.webp';
 
 const TECH_STACK = ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Figma', 'Node.js', 'Framer Motion', 'Vite', 'PostgreSQL', 'GraphQL'];
 
