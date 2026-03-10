@@ -624,7 +624,7 @@ export default function Home() {
                             <h2 className="text-[28px] sm:text-[40px] md:text-[60px] lg:text-[76px] font-extrabold leading-[0.9] text-white mb-10 md:mb-14 max-w-5xl tracking-tight">
                                 Пишите, сделаем<br /> крутой сайт и супер<br /> автоматизацию бизнеса
                             </h2>
-                            <a href="https://t.me/chendev1" className="px-10 py-6 md:px-14 md:py-8 bg-black text-white rounded-full font-bold text-xl md:text-[24px] hover:bg-[#1a1a1a] transition-all hover:scale-110 active:scale-95 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+                            <a href="https://t.me/chendev1" target="_blank" rel="noopener noreferrer" className="px-10 py-6 md:px-14 md:py-8 bg-black text-white rounded-full font-bold text-xl md:text-[24px] hover:bg-[#1a1a1a] transition-all hover:scale-110 active:scale-95 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
                                 Написать в Telegram
                             </a>
                         </div>
