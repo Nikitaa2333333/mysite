@@ -78,6 +78,36 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                     >
                         {data.description}
                     </motion.p>
+
+                    {data.mainVideo && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="w-full mx-auto mt-16 md:mt-24 rounded-[24px] md:rounded-[40px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.15)] bg-black/5"
+                        >
+                            <div className="relative pt-[56.25%] w-full">
+                                <iframe
+                                    src={data.mainVideo}
+                                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                                    frameBorder="0"
+                                    allowFullScreen
+                                    className="absolute top-0 left-0 w-full h-full"
+                                ></iframe>
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {data.mainVideoCaption && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.5 }}
+                            className="mt-6 md:mt-8 text-center text-black/50 font-bold text-base md:text-xl"
+                        >
+                            {data.mainVideoCaption}
+                        </motion.div>
+                    )}
                 </div>
             </div>
 
@@ -107,8 +137,13 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                             </div>
 
                             {/* Картинка секции (Крупно, под текстом) */}
-                            <div className="w-full h-[50vh] md:h-[90vh] overflow-hidden bg-[#f5f5f5]">
-                                <img src={section.image} alt={section.title} loading="lazy" className="w-full h-full object-cover" />
+                            <div className="w-full overflow-hidden bg-[#f5f5f5]">
+                                <img
+                                    src={section.image}
+                                    alt={section.title}
+                                    loading="lazy"
+                                    className="w-full h-auto block"
+                                />
                             </div>
                         </motion.div>
                     </section>
@@ -140,12 +175,6 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                 </div>
             </section>
 
-            {/* ── ПЛАВАЮЩАЯ КНОПКА ЗАКАЗА ── */}
-            <div className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[60]">
-                <button className="px-8 py-4 md:px-10 md:py-5 bg-[#F27D26] text-white rounded-full font-bold text-[15px] md:text-lg hover:bg-[#d56d20] transition-all duration-300 shadow-[0_10px_40px_rgba(242,125,38,0.4)] hover:scale-105 active:scale-95 cursor-pointer">
-                    Запустить проект
-                </button>
-            </div>
         </div >
     );
 }
