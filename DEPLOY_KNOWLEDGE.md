@@ -1,4 +1,4 @@
-# Деплой React-сайта на Springhost через GitHub
+![1776679683415](image/DEPLOY_KNOWLEDGE/1776679683415.png)![1776679684656](image/DEPLOY_KNOWLEDGE/1776679684656.png)![1776679685612](image/DEPLOY_KNOWLEDGE/1776679685612.png)![1776679686837](image/DEPLOY_KNOWLEDGE/1776679686837.png)![1776679716049](image/DEPLOY_KNOWLEDGE/1776679716049.png)![1776679717571](image/DEPLOY_KNOWLEDGE/1776679717571.png)![1776679724619](image/DEPLOY_KNOWLEDGE/1776679724619.png)![1776679739826](image/DEPLOY_KNOWLEDGE/1776679739826.png)# Деплой React-сайта на Springhost через GitHub
 
 ## Что нужно иметь
 - Готовый React + Vite проект на GitHub
@@ -139,11 +139,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22.x'
 
       - name: Install & Build
         run: |
-          rm -f package-lock.json
+          rm -rf package-lock.json node_modules
           npm install
           npm run build
 
