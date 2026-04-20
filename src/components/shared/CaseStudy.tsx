@@ -21,7 +21,7 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                     <span className="text-lg">Назад</span>
                 </button>
             </div>
-            {/* ── ШАПКА КЕЙСА (ФОТО ПЕРВЫМ) ── */}
+            {/* ── ШАПКА КЕЙСА ── */}
             <div className="w-full">
                 {data.fullImage && (
                     <motion.div
@@ -34,7 +34,7 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                     </motion.div>
                 )}
 
-                <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col items-center text-center">
+                <div className="max-w-7xl mx-auto px-6 pt-10 pb-10 md:pt-14 md:pb-12 flex flex-col items-center text-center">
                     {data.buildTime && (
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -60,8 +60,8 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.25 }}
-                            className="flex items-center gap-2 mb-8 text-black/50 font-medium text-base md:text-lg"
+                            transition={{ duration: 0.6, delay: 0.15 }}
+                            className="flex items-center gap-2 mb-6 text-black/50 font-medium text-base md:text-lg"
                         >
                             <span className="w-1.5 h-1.5 rounded-full bg-[#F27D26] shrink-0" />
                             Кейс в процессе — пока{' '}
@@ -71,6 +71,15 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                         </motion.div>
                     )}
 
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        className="text-[18px] md:text-[34px] lg:text-[40px] font-bold leading-[1.1] max-w-5xl text-black mb-10"
+                    >
+                        {data.description}
+                    </motion.p>
+
                     {data.link && (
                         <motion.a
                             href={data.link}
@@ -78,97 +87,63 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                             rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="flex items-center gap-4 px-8 py-4 md:px-10 md:py-5 bg-black text-white rounded-full font-bold text-base md:text-lg hover:bg-[#F27D26] transition-all group scale-100 md:scale-110 mb-12"
+                            transition={{ duration: 0.8, delay: 0.35 }}
+                            className="flex items-center gap-4 px-8 py-4 md:px-10 md:py-5 bg-black text-white rounded-full font-bold text-base md:text-lg hover:bg-[#F27D26] transition-all group"
                         >
                             Смотреть проект
                             <Globe className="w-5 h-5 md:w-6 md:h-6 group-hover:rotate-12 transition-transform" />
                         </motion.a>
                     )}
+                </div>
 
-                    <motion.p
+                {data.mainVideo && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="w-full mx-auto rounded-none overflow-hidden bg-black/5"
+                    >
+                        <div className="relative pt-[56.25%] w-full">
+                            <iframe
+                                src={data.mainVideo}
+                                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                                frameBorder="0"
+                                allowFullScreen
+                                className="absolute top-0 left-0 w-full h-full"
+                            ></iframe>
+                        </div>
+                    </motion.div>
+                )}
+
+                {data.mainVideoCaption && (
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-[18px] md:text-[34px] lg:text-[40px] font-bold leading-[1.0] max-w-5xl text-black"
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="mt-6 md:mt-8 text-center text-black/50 font-bold text-base md:text-xl px-6"
                     >
-                        {data.description}
-                    </motion.p>
-
-                    {data.mainVideo && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="w-full mx-auto mt-16 md:mt-24 rounded-[24px] md:rounded-[40px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.15)] bg-black/5"
-                        >
-                            <div className="relative pt-[56.25%] w-full">
-                                <iframe
-                                    src={data.mainVideo}
-                                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-                                    frameBorder="0"
-                                    allowFullScreen
-                                    className="absolute top-0 left-0 w-full h-full"
-                                ></iframe>
-                            </div>
-                        </motion.div>
-                    )}
-
-                    {data.mainVideoCaption && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="mt-6 md:mt-8 text-center text-black/50 font-bold text-base md:text-xl"
-                        >
-                            {data.mainVideoCaption}
-                        </motion.div>
-                    )}
-                </div>
+                        {data.mainVideoCaption}
+                    </motion.div>
+                )}
             </div>
 
             {/* ── СЕКЦИИ КЕЙСА ── */}
             {
                 data.sections?.map((section: any, idx: number) => (
-                    <section key={idx} className="w-full border-t border-black/5 bg-white flex flex-col pt-16 md:pt-32">
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1 }}
-                            className="w-full"
-                        >
-                            {/* Текст секции (сверху, ближе к картинке, к которой он относится) */}
-                            <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-20 flex flex-col items-center text-center w-full gap-6 md:gap-10">
-                                <div className="flex flex-col items-center w-full max-w-4xl">
-                                    <h2 className="text-[32px] md:text-[76px] lg:text-[92px] font-extrabold text-black leading-[0.9] mb-6 md:mb-10">
-                                        {section.title}
-                                    </h2>
-                                    {section.text && (
-                                        <p className="text-[18px] md:text-[36px] font-bold text-black/80 leading-[1.2]">
-                                            {section.text}
-                                        </p>
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* Картинка секции (Крупно, под текстом) */}
-                            <div className="w-full overflow-hidden bg-[#f5f5f5]">
-                                <img
-                                    src={section.image}
-                                    alt={section.title}
-                                    loading="lazy"
-                                    className="w-full h-auto block"
-                                />
-                            </div>
-                        </motion.div>
-                    </section>
+                    <div key={idx} className="w-full bg-white">
+                        <img
+                            src={section.image}
+                            alt={section.title}
+                            loading="lazy"
+                            className="w-full h-auto block"
+                        />
+                    </div>
                 ))
             }
 
             {/* ── ОТЗЫВ ── */}
             {data.review && (
-                <section className="py-16 md:py-32 px-6 border-t border-black/5 bg-white">
+                <section className="py-16 md:py-32 px-6 bg-white">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -194,7 +169,7 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
             )}
 
             {/* ── БЛОК "ЕЩЁ" ── */}
-            <section className="py-24 px-6 border-t border-black/5 bg-[#f8f8f8] mb-20">
+            <section className="py-24 px-6 bg-[#f8f8f8] mb-20">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-[40px] md:text-[60px] font-extrabold text-black mb-16 text-center">Ещё</h2>
                     <div className="flex flex-wrap justify-center gap-[5px] md:gap-[10px]">

@@ -16,7 +16,7 @@ import zooBestfriend from '../assets/images/zoo-bestfriend.webp';
 import bestfriendCover from '../assets/images/bestfriend-cover.webp';
 import buuuShowcase from '../assets/images/БУУУ.webp';
 import emojitoursCover from '../assets/images/Slide 16_9 - 7.webp';
-import emojitoursShowcase from '../assets/images/Slide 16_9 - 24.webp';
+import emojitoursShowcase from '../assets/images/emojitours-section1.png';
 import emojitoursMemo from '../assets/images/Slide 16_9 - 25.webp';
 import arharQuartzCover from '../assets/images/arhar-quartz-cover.webp';
 import arharQuartzScreen from '../assets/images/arhar-quartz-screen.webp';
