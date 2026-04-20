@@ -14,8 +14,8 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 async function optimize() {
     console.log('🚀 Начинаю оптимизацию изображений...');
 
-    // Ищем все PNG и JPG в корне и в public
-    const files = await glob(['*.{png,jpg,jpeg}', 'public/*.{png,jpg,jpeg}']);
+    // Ищем все PNG и JPG в корне, в public и в src/assets/images
+    const files = await glob(['*.{png,jpg,jpeg}', 'public/*.{png,jpg,jpeg}', 'src/assets/images/*.{png,jpg,jpeg}']);
 
     for (const file of files) {
         const filename = path.basename(file);

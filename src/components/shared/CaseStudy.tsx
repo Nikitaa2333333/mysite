@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Zap, Globe } from 'lucide-react';
 
+
 export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data: any, onClose: () => void, onSwitchCase: (id: number) => void, cases: any[] }) {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -54,6 +55,21 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                     >
                         {data.title}
                     </motion.h1>
+
+                    {data.inProgress && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.25 }}
+                            className="flex items-center gap-2 mb-8 text-black/50 font-medium text-base md:text-lg"
+                        >
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#F27D26] shrink-0" />
+                            Кейс в процессе — пока{' '}
+                            <a href={data.link} target="_blank" rel="noopener noreferrer" className="text-[#F27D26] underline underline-offset-4 hover:opacity-70 transition-opacity">
+                                посмотрите на результат
+                            </a>
+                        </motion.div>
+                    )}
 
                     {data.link && (
                         <motion.a
@@ -149,6 +165,33 @@ export default function CaseStudy({ data, onClose, onSwitchCase, cases }: { data
                     </section>
                 ))
             }
+
+            {/* ── ОТЗЫВ ── */}
+            {data.review && (
+                <section className="py-16 md:py-32 px-6 border-t border-black/5 bg-white">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-4xl mx-auto"
+                    >
+                        <p className="text-[18px] md:text-[24px] font-medium text-black leading-[1.6] mb-12">
+                            «{data.review.text}»
+                        </p>
+                        <div className="flex items-center gap-5 border-t border-black/10 pt-8">
+                            {data.review.avatar
+                                ? <img src={data.review.avatar} alt={data.review.name} className="w-14 h-14 rounded-full object-cover" />
+                                : <div className="w-14 h-14 rounded-full bg-[#F27D26] flex items-center justify-center text-white font-black text-xl shrink-0">{data.review.name[0]}</div>
+                            }
+                            <div>
+                                <div className="text-black font-bold text-xl">{data.review.name}</div>
+                                <div className="text-black/40 font-medium text-base">{data.review.role}</div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </section>
+            )}
 
             {/* ── БЛОК "ЕЩЁ" ── */}
             <section className="py-24 px-6 border-t border-black/5 bg-[#f8f8f8] mb-20">

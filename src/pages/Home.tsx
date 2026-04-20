@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles, Zap, Globe, Heart, Quote, Rocket, MessageSquare, Search, Camera, Play, Database, Shield, BarChart, Layers, Eye } from 'lucide-react';
+import { ArrowRight, Zap, Heart, Rocket, MessageSquare, Search, Camera, Play, Database, Shield, BarChart, Layers, Eye } from 'lucide-react';
 import myPhoto from '../assets/images/Gemini_Generated_Image_o3wfh7o3wfh7o3wf.webp';
 import strawberryCover from '../assets/images/Slide 16_9 - 1.webp';
-import grafitCover from '../assets/images/Slide 16_9 - 12.webp';
 import uvuCover from '../assets/images/увууу.webp';
 import grafitShowcase from '../assets/images/Slide 16_9 - 15.webp';
 import aaaaCover from '../assets/images/аааааа.webp';
@@ -13,7 +12,14 @@ import strawberryLogistics from '../assets/images/Slide 16_9 - 19.webp';
 import strawberryTelegram from '../assets/images/тггг.webp';
 import frame36 from '../assets/images/Frame 36.webp';
 import frame37 from '../assets/images/Frame 37.webp';
+import zooBestfriend from '../assets/images/zoo-bestfriend.webp';
+import bestfriendCover from '../assets/images/bestfriend-cover.webp';
 import buuuShowcase from '../assets/images/БУУУ.webp';
+import emojitoursCover from '../assets/images/Slide 16_9 - 7.webp';
+import emojitoursShowcase from '../assets/images/Slide 16_9 - 24.webp';
+import emojitoursMemo from '../assets/images/Slide 16_9 - 25.webp';
+import arharQuartzCover from '../assets/images/arhar-quartz-cover.webp';
+import arharQuartzScreen from '../assets/images/arhar-quartz-screen.webp';
 import CaseStudy from '../components/shared/CaseStudy';
 
 const TECH_STACK = [
@@ -24,6 +30,83 @@ const TECH_STACK = [
 ];
 
 const CASES = [
+    // ── 1. Зоотель — на всю ширину ──
+    {
+        id: 5,
+        title: 'Зоотель «БестФренд»',
+        category: 'Услуги / Pet-care',
+        buildTime: '7 дней',
+        likes: 41,
+        link: 'https://xn--90agca4bqgis.xn--p1ai/',
+        image: bestfriendCover,
+        description: 'Онлайн-витрина зоотеля с автоматизацией брони и Telegram-уведомлениями.',
+        fullImage: bestfriendCover,
+        fullWidthRow: true,
+        inProgress: true,
+        sections: [
+            {
+                title: 'Онлайн-бронирование',
+                text: 'Клиент выбирает номер, видит что включено, и бронирует за пару кликов — без звонков и мессенджеров.',
+                image: zooBestfriend
+            }
+        ]
+    },
+    // ── 2. Эмоджи Турс — на всю ширину ──
+    {
+        id: 4,
+        title: 'Эмоджи Турс',
+        category: 'Туристическое агентство',
+        buildTime: '10 дней',
+        likes: 61,
+        link: 'https://emojitours.ru/',
+        image: emojitoursCover,
+        description: 'Масштабная туристическая экосистема: 30+ страниц, 3D-памятки для каждой страны и живой маскот, который провожает тебя в отпуск.',
+        fullImage: emojitoursCover,
+        fullWidthRow: true,
+        review: {
+            text: 'Никита очень скромный парень, но с огромным потенциалом! Моя задача была сформирована не особо чётко, так как я сам до конца не понимал, как должен выглядеть проект в конечном счёте. Никита очень быстро задал правильные вопросы, разобрался в задаче и сформировал своё предложение с демонстрацией демо. В итоге полностью обновили проект моего туристического агентства, логотип, создали и интегрировали новые функции и модули. Сайт стал выглядеть современно, функционально и максимально приятно! Очень рад сотрудничеству и буду рад работать дальше с Никитой! Всем очень рекомендую.',
+            name: 'Евгений',
+            role: 'Основатель Эмоджи Турс',
+            avatar: null,
+        },
+        sections: [
+            {
+                title: '30+ страниц — каждая живая',
+                text: 'Отдельная страница под каждое направление: своя навигация, своя атмосфера, свой ритм. Bento-грид стран, интерактивный календарь туров и умный поиск Tourvisor — всё работает как единый организм без перезагрузок и задержек.',
+                image: emojitoursShowcase
+            },
+            {
+                title: 'PDF-памятки путешественника',
+                text: 'Для каждой страны — интерактивная памятка с генерацией 3D-визуалов: климат, визовый режим, лучшие месяцы, лайфхаки от местных. Не просто текст — полноценный гид, в котором хочется задержаться.',
+                image: emojitoursMemo
+            }
+        ]
+    },
+    // ── 3+4. Архар Кварц + Апельсинка — две колонки ──
+    {
+        id: 6,
+        title: 'Архар Кварц',
+        category: 'Инвестиции / B2B',
+        buildTime: '3 часа',
+        likes: 44,
+        link: 'https://arhar-quartz.ru/',
+        image: arharQuartzCover,
+        description: 'Консервативный корпоративный лендинг для привлечения инвесторов: ключевые метрики, цифры и доверие с первого взгляда.',
+        fullImage: arharQuartzCover,
+        fullWidthRow: false,
+        sections: [
+            {
+                title: 'Инвестор-центричный дизайн',
+                text: 'Строгая корпоративная эстетика с акцентом на главных финансовых показателях. Каждый блок — аргумент для инвестора: активы, доходность, история. Никакого шума — только цифры и доверие.',
+                image: arharQuartzScreen
+            },
+            {
+                title: 'Экспресс-запуск за 3 часа',
+                text: 'От брифа до живого сайта — 3 рабочих часа. Лендинг написан с нуля на чистом коде без шаблонов: 95+ баллов PageSpeed, мгновенная загрузка и полная адаптация под мобильные устройства.',
+                image: arharQuartzScreen
+            }
+        ]
+    },
     {
         id: 1,
         title: 'Strawberry Love',
@@ -36,7 +119,7 @@ const CASES = [
         mainVideo: 'https://kinescope.io/embed/tGeLSBGuAcoWtLbtvV6bRG',
         mainVideoCaption: 'Никита рассказывает и показывает сайт',
         fullImage: strawberryCover,
-        fullWidthRow: true,
+        fullWidthRow: false,
         sections: [
             {
                 title: 'Визуал, который продает',
@@ -57,6 +140,26 @@ const CASES = [
                 title: 'Telegram CRM',
                 text: 'Мгновенное уведомление в Telegram: менеджер видит состав заказа, точный адрес и статус оплаты. Автоматизация 90% процессов превращает сайт в автономный бизнес.',
                 image: strawberryTelegram
+            }
+        ]
+    },
+    // ── 5+6. Легенда + Grafit Lab — две колонки ──
+    {
+        id: 3,
+        title: 'Легенда',
+        category: 'Недвижимость',
+        buildTime: '2 часа',
+        likes: 52,
+        link: 'https://legenda1.vercel.app/',
+        image: frame36,
+        description: 'Высококонверсионный посадочный экран для моментального сбора лидов и роста продаж.',
+        fullImage: frame37,
+        fullWidthRow: false,
+        sections: [
+            {
+                title: 'Экспресс-запуск',
+                text: 'Запуск за 2 рабочих часа от идеи до кода. Архитектура захвата внимания пользователя обеспечивает максимальную конверсию.',
+                image: buuuShowcase
             }
         ]
     },
@@ -83,25 +186,6 @@ const CASES = [
                 title: 'AI-Генерация знаний',
                 text: 'Интеллектуальная система анализирует лучшие мировые исследования и тренды 2025-2026 годов. Все научные открытия и публикации проходят через наш AI-процессинг для быстрой дистрибуции экспертизы.',
                 image: aaaaCover
-            }
-        ]
-    },
-    {
-        id: 3,
-        title: 'Легенда',
-        category: 'Недвижимость',
-        buildTime: '2 часа',
-        likes: 52,
-        link: 'https://legenda1.vercel.app/',
-        image: frame36,
-        description: 'Высококонверсионный посадочный экран для моментального сбора лидов и роста продаж.',
-        fullImage: frame37,
-        fullWidthRow: false,
-        sections: [
-            {
-                title: 'Экспресс-запуск',
-                text: 'Запуск за 2 рабочих часа от идеи до кода. Архитектура захвата внимания пользователя обеспечивает максимальную конверсию.',
-                image: buuuShowcase
             }
         ]
     }
@@ -479,8 +563,35 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ... Other sections omitted for brevity in write_to_file but I will include them ... */}
-                {/* Skipping the comparison table and footer for now to make sure I don't hit limits, but user wants the FULL site. I will include it. */}
+                {/* ── ОТЗЫВ ЕВГЕНИЙ ── */}
+                <section className="pt-0 pb-16 md:pb-24 px-6 max-w-7xl mx-auto relative z-10 w-full overflow-hidden">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-12 backdrop-blur-md"
+                    >
+                        <p className="text-[18px] md:text-[26px] font-medium text-white leading-[1.5] mb-10">
+                            Никита очень скромный парень, но с огромным потенциалом! Моя задача была сформирована не особо чётко, так как я сам до конца не понимал, как должен выглядеть проект в конечном счёте. Никита очень быстро задал правильные вопросы, разобрался в задаче и сформировал своё предложение с демонстрацией демо. В итоге полностью обновили проект моего туристического агентства, логотип, создали и интегрировали новые функции и модули. Сайт стал выглядеть современно, функционально и максимально приятно! Очень рад сотрудничеству и буду рад работать дальше с Никитой! Всем очень рекомендую.
+                        </p>
+                        <div className="flex flex-col md:flex-row gap-6 md:items-center w-full">
+                            <div className="flex items-center gap-4 flex-1">
+                                <div className="w-12 h-12 rounded-full bg-[#F27D26]/20 border border-[#F27D26]/40 flex items-center justify-center text-[#F27D26] font-black text-xl">Е</div>
+                                <div>
+                                    <div className="text-white font-bold text-lg">Евгений</div>
+                                    <div className="text-white/40 font-medium text-sm">Основатель Эмоджи Турс</div>
+                                </div>
+                            </div>
+                            <a href="https://emojitours.ru/" target="_blank" rel="noreferrer" className="group flex items-center justify-center gap-3 px-8 py-4 bg-white/10 hover:bg-white text-white hover:text-black rounded-full transition-all duration-300 font-bold shrink-0">
+                                Перейти на сайт
+                                <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-black/10 flex items-center justify-center transition-colors">
+                                    <ArrowRight className="w-4 h-4 group-hover:-rotate-45 transition-transform" />
+                                </div>
+                            </a>
+                        </div>
+                    </motion.div>
+                </section>
 
                 <section className="bg-black py-20 md:py-32 px-6 relative z-10 w-full overflow-hidden border-t border-white/10">
                     <div className="max-w-7xl mx-auto flex flex-col items-start text-left relative z-10">
